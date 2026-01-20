@@ -1,0 +1,230 @@
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#f4f4f4;
+--text:#111;
+--card:#fff;
+--primary:#c59d5f;
+--muted:#777;
+}
+[data-theme="dark"]{
+--bg:#0f0f0f;
+--text:#f5f5f5;
+--card:#1b1b1b;
+--primary:#e0b973;
+--muted:#aaa;
+}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+transition:.3s;
+scroll-behavior:smooth;
+}
+.container{width:90%;max-width:1200px;margin:auto}
+section{padding:80px 0}
+h2{text-align:center;font-size:2.4rem;margin-bottom:40px}
+
+/* HEADER */
+header{
+position:sticky;top:0;z-index:100;
+background:var(--card);
+box-shadow:0 4px 15px rgba(0,0,0,.1);
+}
+.nav{
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 0;
+}
+.nav ul{display:flex;gap:25px;list-style:none}
+.nav a{
+text-decoration:none;
+color:var(--text);
+font-weight:bold;
+position:relative;
+}
+.nav a.active::after{
+content:"";
+position:absolute;
+bottom:-6px;left:0;
+width:100%;height:3px;
+background:var(--primary);
+}
+.btn{
+background:var(--primary);
+border:none;
+padding:12px 18px;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* HERO */
+.hero{
+min-height:90vh;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1599351431202-1e0f0137899a") center/cover;
+display:flex;
+align-items:center;
+color:white;
+}
+.hero-content{text-align:center;max-width:700px;margin:auto}
+.hero h1{font-size:3.6rem}
+.hero p{font-size:1.3rem;margin:20px 0}
+
+/* FEATURES */
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.feature{
+background:var(--card);
+padding:25px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+.card{
+background:var(--card);
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,.15);
+transition:.3s;
+}
+.card:hover{transform:translateY(-6px)}
+.card img{width:100%;height:220px;object-fit:cover}
+.card div{padding:18px}
+.price{color:var(--primary);font-size:1.6rem;font-weight:bold}
+
+/* FORM */
+.contact-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+form{
+background:var(--card);
+padding:30px;
+border-radius:18px;
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+input,select,textarea{
+padding:14px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+form button{background:var(--primary);border:none;padding:14px;font-weight:bold}
+
+/* FAQ */
+.faq{max-width:800px;margin:auto}
+.faq-item{
+background:var(--card);
+margin-bottom:15px;
+border-radius:12px;
+overflow:hidden;
+}
+.faq-question{
+padding:18px;
+font-weight:bold;
+cursor:pointer;
+}
+.faq-answer{
+padding:0 18px;
+max-height:0;
+overflow:hidden;
+transition:.3s;
+color:var(--muted);
+}
+.faq-item.active .faq-answer{
+max-height:120px;
+padding-bottom:18px;
+}
+
+/* MAP */
+.map iframe{width:100%;height:320px;border-radius:18px}
+
+/* SOCIAL */
+.socials{
+display:flex;
+justify-content:center;
+gap:25px;
+margin-top:30px;
+}
+.socials a{text-decoration:none;font-weight:bold;color:var(--text)}
+
+/* FLOAT BTN */
+.call-btn{
+position:fixed;
+bottom:20px;right:20px;
+background:#25d366;
+color:white;
+padding:15px 22px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
+z-index:200;
+}
+
+/* FOOTER */
+footer{
+background:var(--card);
+padding:25px;
+text-align:center;
+margin-top:50px;
+}
+
+/* ANIMATION */
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:.7s;
+}
+.reveal.active{
+opacity:1;
+transform:none;
+}
+
+/* LOADER */
+#loader{
+position:fixed;
+inset:0;
+background:#0f0f0f;
+color:#c59d5f;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.2rem;
+z-index:9999;
+}
+
+/* TOAST */
+#toast{
+position:fixed;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+background:#111;
+color:white;
+padding:15px 25px;
+border-radius:40px;
+opacity:0;
+pointer-events:none;
+transition:.4s;
+z-index:500;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.nav ul{display:none}
+.contact-grid{grid-template-columns:1fr}
+.hero h1{font-size:2.6rem}
+}
